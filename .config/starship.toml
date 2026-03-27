@@ -1,0 +1,113 @@
+"$schema" = "https://starship.rs/config-schema.json"
+
+add_newline = false
+
+format = """
+[╭─](mauve)\
+$username\
+$directory\
+$nodejs\
+$python\
+$java\
+$golang\
+$git_branch\
+$git_status\
+$cmd_duration
+[╰─](mauve)\
+$character \
+"""
+
+palette = "catppuccin_mocha"
+
+[username]
+style_user = "fg:crust bg:green"
+style_root = "fg:crust bg:green"
+format = "[](green)[$user]($style)(fg:green bg:green)[](green)"
+show_always = true
+
+[directory]
+format = " on [](peach)[$path]($style)[$read_only]($read_only_style)[](peach)"
+style = "fg:crust bg:peach"
+truncation_length = 2
+
+[character]
+format = "[\ue285\ueab6](mauve)"
+success_symbol = "[\ue285\ueab6](green)"
+error_symbol = "[\ue285\ueab6](red)"
+
+[cmd_duration]
+min_time = 500
+show_milliseconds = true
+format = " in [](lavender)[$duration]($style)[](lavender)"
+style = "bg:lavender fg:crust"
+disabled = false
+show_notifications = false
+
+[git_branch]
+symbol = ""
+format = " status [](rose)[$symbol $branch]($style)"
+style = "fg:text bg:rose"
+
+[git_status]
+format = "[$modified$untracked$staged$deleted$renamed$conflicted$stashed$ahead_behind]($style)[](rose)"
+style = "fg:text bg:rose"
+conflicted = " [󰞇 $count ]"
+ahead = " [ ${count}]"
+behind = " [ ${count}]"
+diverged = " [ ${ahead_count}${behind_count}]"
+up_to_date = " \uf4a7 "
+untracked = " "
+stashed = " [󰏗 $count]"
+modified = " [󰖷 $count]"
+staged = " \uf457"
+renamed = " [󰑕 $count]"
+deleted = "  $count"
+
+[nodejs]
+format = " via [](lang_green)[$symbol($version)]($style)[](lang_green)"
+style = "fg:text bg:lang_green"
+
+[python]
+format = " via [](lang_green)[\ued1b ${pyenv_prefix}(${version})($virtualenv)]($style)[](lang_green)"
+style = "fg:text bg:lang_green"
+
+[java]
+format = " via [](sky)[${symbol}${version}]($style)[](sky)"
+style = "fg:text bg:sky"
+symbol = "\uedaf "
+
+[golang]
+format = " via [](teal)[${symbol} ${version}]($style)[](teal)"
+style = "fg:text bg:teal"
+symbol = "Go"
+
+[palettes.catppuccin_mocha]
+rosewater = "#f5e0dc"
+flamingo = "#f2cdcd"
+pink = "#f5c2e7"
+mauve = "#cba6f7"
+red = "#d20f39"
+rose = "#f38ba8"
+maroon = "#eba0ac"
+peach = "#fab387"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+teal = "#94e2d5"
+sky = "#89dceb"
+sapphire = "#74c7ec"
+blue = "#89b4fa"
+lavender = "#b4befe"
+text = "#cdd6f4"
+subtext1 = "#bac2de"
+subtext0 = "#a6adc8"
+overlay2 = "#9399b2"
+overlay1 = "#7f849c"
+overlay0 = "#6c7086"
+surface2 = "#585b70"
+surface1 = "#45475a"
+surface0 = "#313244"
+base = "#1e1e2e"
+mantle = "#181825"
+crust = "#11111b"
+lang_green = "#C3CC9B"
+
